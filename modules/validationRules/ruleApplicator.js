@@ -1,10 +1,10 @@
-module.exports = (input, rules) => {
+module.exports = (input, model) => {
     const 
           brokenRuleDescriptions = []
-        , numberOfRules = rules.length
+        , numberOfRules = model.rules.length
     ;
 
-    rules.forEach(rule => {
+    model.rules.forEach(rule => {
         if(!rule.apply(input)) {
             brokenRuleDescriptions.push(rule.description);
         };
@@ -16,6 +16,7 @@ module.exports = (input, rules) => {
     ;
 
     return {
+        type: model.type,
         brokenRules: brokenRuleDescriptions,
         allPassed: numberOfBrokenRules === 0,
         total: numberOfRules,

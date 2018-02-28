@@ -1,6 +1,16 @@
 var ruleApplicator = require('./ruleApplicator');
 
+const stringBefore = (input, firstString, secondString) => {
+    const firstStringIndex = input.indexOf(firstString)
+        , secondStringIndex = input.indexOf(secondString)
+    ;
+
+    return firstStringIndex < secondStringIndex;
+};
+
 const _module = {
+
+    type: 'Quickstart',
 
     rules: [
         {
@@ -20,18 +30,16 @@ const _module = {
 
         {
             description: 'Link to free account must come before first H2',
-            apply: input => {
-                const 
-                      freeLinkIndex = input.indexOf('azure.microsoft.com/free')
-                    , firstH2Index = input.indexOf('##')
-                ;
+            apply: input =>  stringBefore(input, 'azure.microsoft.com/free', '##')
+        },
 
-                return firstH2Index > freeLinkIndex;
-            }
+        {
+            description: '"Clean up resouces" comes before "Next steps"',
+            apply: input => stringBefore(input, 'Clean up resources', 'Next steps')
         }
     ],
 
-    apply: (input) => ruleApplicator(input, _module.rules)
+    apply: (input) => ruleApplicator(input, _module)
 };
 
 module.exports = _module;

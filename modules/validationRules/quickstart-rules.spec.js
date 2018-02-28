@@ -42,6 +42,12 @@ describe('quickstart-rules => ', () => {
             const results = quickstartRules.apply(invalid);
             expect(results.brokenRules.includes('Required text in H1: "Quickstart: "')).toBe(true);
         });
+
+        it('"Next steps" comes before "Clean up resources"', () => {
+            const invalid = validQuickstart.replace('# Clean up resources', '# Next steps # Clean up resources');
+            const results = quickstartRules.apply(invalid);
+            expect(results.brokenRules.includes('"Clean up resouces" comes before "Next steps"')).toBe(true);
+        });
         
         it('missing required "Next steps" section', () => {
             const invalid = validQuickstart.replace('Next steps', '');
