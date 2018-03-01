@@ -1,12 +1,7 @@
-var ruleApplicator = require('./ruleApplicator');
-
-const stringBefore = (input, firstString, secondString) => {
-    const firstStringIndex = input.indexOf(firstString)
-        , secondStringIndex = input.indexOf(secondString)
-    ;
-
-    return firstStringIndex < secondStringIndex;
-};
+const 
+      ruleApplicator = require('./ruleApplicator')
+    , commonRules = require('./commonRules')
+;
 
 const _module = {
 
@@ -30,12 +25,12 @@ const _module = {
 
         {
             description: 'Link to free account must come before first H2',
-            apply: input =>  stringBefore(input, 'azure.microsoft.com/free', '##')
+            apply: input =>  commonRules.stringBefore(input, 'azure.microsoft.com/free', '##')
         },
 
         {
             description: '"Clean up resouces" comes before "Next steps"',
-            apply: input => stringBefore(input, 'Clean up resources', 'Next steps')
+            apply: input => commonRules.stringBefore(input, 'Clean up resources', 'Next steps')
         }
     ],
 
