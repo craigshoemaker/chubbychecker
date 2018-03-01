@@ -5,7 +5,7 @@ const
 
 const _module = {
 
-    type: 'General',
+    type: 'Tutorial',
 
     rules: [
         {
