@@ -1,4 +1,4 @@
-const quickstartRules = require('./quickstart-rules');
+const quickstartRules = require('./quickstartRules');
 
 const validQuickstart = `
 # Quickstart: Sample quickstart
