@@ -1,4 +1,4 @@
-var ruleApplicator = require('./ruleApplicator');
+const ruleApplicator = require('./ruleApplicator');
 
 const _module = {
 

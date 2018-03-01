@@ -1,6 +1,5 @@
 const generalRules = require('./generalRules');
 
-
 const validInput = `
 ---
 title: Reacting to Azure Blob Storage events | Microsoft Docs
@@ -42,7 +41,6 @@ describe('general rules => ', () => {
             const results = generalRules.apply(invalid);
             expect(results.brokenRules.includes('Metadata is required')).toBe(true);
         });
-        
 
     });
 
