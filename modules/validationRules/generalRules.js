@@ -8,6 +8,11 @@ const _module = {
         {
             description: 'H1 title immediately after metadata',
             apply: input => /---\n(\n)?\#/.test(input)
+        },
+
+        {
+            description: 'Metadata is required',
+            apply: input => /---(.|\s)+---/.test(input)
         }
     ],
 

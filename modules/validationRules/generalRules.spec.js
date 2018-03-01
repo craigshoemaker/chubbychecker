@@ -37,6 +37,13 @@ describe('general rules => ', () => {
             expect(results.brokenRules.includes('H1 title immediately after metadata')).toBe(true);
         });
 
+        it('missing metadata', () => {
+            const invalid = validInput.replace('---', '');
+            const results = generalRules.apply(invalid);
+            expect(results.brokenRules.includes('Metadata is required')).toBe(true);
+        });
+        
+
     });
 
 });
