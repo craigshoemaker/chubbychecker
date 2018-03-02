@@ -11,8 +11,9 @@ const _module = {
 
         let generalResults, typeResults, results = {};
 
+        generalResults = rules.general.apply(input);
+
         if(!!rules[type]) {
-            generalResults = rules.general.apply(input);
             typeResults = rules[type].apply(input);
 
             results = {
@@ -21,6 +22,14 @@ const _module = {
                 total: generalResults.total + typeResults.total,
                 passed: generalResults.passed + typeResults.passed,
                 failed: generalResults.failed + typeResults.failed
+            };
+        } else {
+            results = {
+                details: [generalResults],
+                allPassed: generalResults.allPassed,
+                total: generalResults.total,
+                passed: generalResults.passed,
+                failed: generalResults.failed
             };
         }
 

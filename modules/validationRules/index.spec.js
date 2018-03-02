@@ -4,9 +4,9 @@ const invalidInput = '';
 
 describe('index => ', () => {
 
-    it('unrecognized type returns and empty object', () => {
-        const results = runner.apply(invalidInput, 'foo');
-        expect(results.details).toBeUndefined(0);
+    it('no type still runs general rules', () => {
+        const results = runner.apply(invalidInput);
+        expect(results.details[0].type).toEqual('General');
     });
 
     it('overview', () => {
