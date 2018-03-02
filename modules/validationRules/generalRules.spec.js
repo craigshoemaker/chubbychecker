@@ -37,7 +37,7 @@ describe('general rules => ', () => {
         });
 
         it('missing metadata', () => {
-            const invalid = validInput.replace('---', '');
+            const invalid = validInput.substr(validInput.lastIndexOf('---'));
             const results = generalRules.apply(invalid);
             expect(results.brokenRules.includes('Metadata is required')).toBe(true);
         });

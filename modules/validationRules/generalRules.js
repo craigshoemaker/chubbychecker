@@ -12,7 +12,7 @@ const _module = {
 
         {
             description: 'Metadata is required',
-            apply: input => /---(.|\s)+---/.test(input)
+            apply: input => /(title|description|ms\.service|ms\.topic|ms\.date|ms\.author)\:/.test(input)
         }
     ],
 
