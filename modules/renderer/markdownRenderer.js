@@ -13,13 +13,15 @@ const _module = {
             builder.push('\n');
             
             result.details.forEach(item => {
-                builder.push(`### ${item.type}`);
-                builder.push(`- Total: ${item.total}, Passed: ${item.passed}, Failed: ${item.failed}`);
-                builder.push('- Broken rules:');
-                if(item.brokenRules.length > 0) {
-                    builder.push('  * ' + item.brokenRules.join('\n  * '));
+                if(!item.allPassed) {
+                    builder.push(`### ${item.type}`);
+                    builder.push(`- Total: ${item.total}, Passed: ${item.passed}, Failed: ${item.failed}`);
+                    builder.push('- Broken rules:');
+                    if(item.brokenRules.length > 0) {
+                        builder.push('  * ' + item.brokenRules.join('\n  * '));
+                    }
+                    builder.push('\n');
                 }
-                builder.push('\n');
             });
         }
         
