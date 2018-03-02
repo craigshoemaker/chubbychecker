@@ -1,6 +1,7 @@
 const renderStrategies = {
     markdown: require('./markdownRenderer'),
-    string: require('./stringRenderer')
+    string: require('./stringRenderer'),
+    html: require('./htmlRenderer')
 };
 
 const _module = {
