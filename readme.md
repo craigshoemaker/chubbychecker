@@ -1,10 +1,8 @@
 # ChubbyChecker
-Validation engine that checks documentation for structure rules.
-
-## Get started
+Checks documentation files for required content elements.
 
 ## Usage
-
+Based on the parameters you pass in, you can check different document types and output the results in different formats.
 
 |Parameter  |Description  |
 |---------|---------|
@@ -47,7 +45,7 @@ The same information is available in Markdown format. The following command:
 
     node index.js --type quickstart --output markdown --src "c:\quickstart.md"
 
-...produces the following output:
+... produces the following output:
 
     ## Validation Summary:
     - Total: 7, Passed: 0, Failed: 7
