@@ -8,8 +8,8 @@ Validation engine that checks documentation for structure rules.
 
 |Parameter  |Description  |
 |---------|---------|
-|*type*     | Designates what type of document validation rules to apply to the source. Values include `overview`, `quickstart` and `tutorial`|
-|*output*   | Determines the output returned. Values include `json` (default), `string`, `markdown` and `html`.        |
+|*type*     | Designates what type of document validation rules to apply to the source. Values include `overview`, `quickstart` and `tutorial`.|
+|*output*   | Determines the output rendered. Values include `json` (default), `string`, `markdown` and `html`.        |
 |*src*      |  Takes the full path and file name of the article to check.       |
 
 
