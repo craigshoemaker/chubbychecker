@@ -30,7 +30,7 @@ describe('index => ', () => {
     it('general rules are always run', () => {
         const results = runner.apply(invalidInput, 'tutorial');
         expect(results.allPassed).toBe(false);
-        expect(results.details[0].brokenRules.includes('H1 title immediately after metadata')).toBe(true);
+        expect(results.details[0].brokenRules.includes('H1 title must immediately follow metadata')).toBe(true);
     });
 
 });

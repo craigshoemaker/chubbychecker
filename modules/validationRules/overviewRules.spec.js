@@ -26,13 +26,13 @@ describe('overviewRules => ', () => {
         it('missing required words in overview title"', () => {
             const invalid = validInput.replace('# What is', '# ');
             const results = rules.apply(invalid);
-            expect(results.brokenRules.includes('Required text in H1: "What is <service>?"')).toBe(true);
+            expect(results.brokenRules.includes('H1 format must be: "What is <service>?"')).toBe(true);
         });
 
         it('missing question mark in title"', () => {
             const invalid = validInput.replace('Storage?', 'Storage');
             const results = rules.apply(invalid);
-            expect(results.brokenRules.includes('Required text in H1: "What is <service>?"')).toBe(true);
+            expect(results.brokenRules.includes('H1 format must be: "What is <service>?"')).toBe(true);
         });
 
         it('missing required "Next steps" section', () => {

@@ -27,19 +27,19 @@ Which produces something similar to following output:
     ...........................
     - Total: 2, Passed: 0, Failed: 2
     - Broken rules:
-      * H1 title immediately after metadata
-      * Metadata is required
+      * H1 title must immediately follow metadata
+      * Document must include metadata
     
     
     Quickstart
     ...........................
     - Total: 5, Passed: 0, Failed: 5
     - Broken rules:
-      * Required text in H1: "Quickstart: "
+      * H1 format must be: "Quickstart: "
       * Required section: "Clean up resources"
       * Required section: "Next steps"
-      * Link to free account must come before first H2
-      * "Clean up resouces" comes before "Next steps"
+      * Link to free Azure account must come before first H2
+      * "Clean up resouces" section must appear before "Next steps" section
 
 The same information is available in Markdown format. The following command:
 
@@ -54,15 +54,15 @@ The same information is available in Markdown format. The following command:
     ### General
     - Total: 2, Passed: 0, Failed: 2
     - Broken rules:
-      * H1 title immediately after metadata
-      * Metadata is required
+      * H1 title must immediately follow metadata
+      * Document must include metadata
     
     
     ### Quickstart
     - Total: 5, Passed: 0, Failed: 5
     - Broken rules:
-      * Required text in H1: "Quickstart: "
+      * H1 format must be: "Quickstart: "
       * Required section: "Clean up resources"
       * Required section: "Next steps"
-      * Link to free account must come before first H2
-      * "Clean up resouces" comes before "Next steps"
+      * Link to free Azure account must come before first H2
+      * "Clean up resouces" section must appear before "Next steps" section

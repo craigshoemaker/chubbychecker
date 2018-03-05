@@ -34,7 +34,7 @@ const _module = {
         },
 
         {
-            description: '"Clean up resouces" comes before "Next steps"',
+            description: '"Clean up resouces" section must appear before "Next steps" section',
             apply: input => commonRules.stringBefore(input, 'Clean up resources', 'Next steps')
         }
     ],

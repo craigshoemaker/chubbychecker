@@ -9,7 +9,7 @@ const _module = {
 
     rules: [
         {
-            description: 'Required text in H1: "What is <service>?"',
+            description: 'H1 format must be: "What is <service>?"',
             apply: input => /\# ?What is .+\?/.test(input)
         },
 

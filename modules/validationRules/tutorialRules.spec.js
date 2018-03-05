@@ -52,7 +52,7 @@ describe('tutorialRules => ', () => {
         it('"Next steps" comes before "Clean up resources"', () => {
             const invalid = validInput.replace('# Clean up resources', '# Next steps # Clean up resources');
             const results = rules.apply(invalid);
-            expect(results.brokenRules.includes('"Clean up resouces" comes before "Next steps"')).toBe(true);
+            expect(results.brokenRules.includes('"Clean up resouces" section must appear before "Next steps" section')).toBe(true);
         });
         
         it('missing required "Next steps" section', () => {

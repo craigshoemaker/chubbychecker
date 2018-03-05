@@ -9,7 +9,7 @@ const _module = {
 
     rules: [
         {
-            description: 'Required text in H1: "Quickstart: "',
+            description: 'H1 format must be: "Quickstart: "',
             apply: input => /\# ?Quickstart\: /.test(input)
         },
 
@@ -24,12 +24,12 @@ const _module = {
         },
 
         {
-            description: 'Link to free account must come before first H2',
+            description: 'Link to free Azure account must come before first H2',
             apply: input =>  commonRules.stringBefore(input, 'azure.microsoft.com/free', '##')
         },
 
         {
-            description: '"Clean up resouces" comes before "Next steps"',
+            description: '"Clean up resouces" section must appear before "Next steps" section',
             apply: input => commonRules.stringBefore(input, 'Clean up resources', 'Next steps')
         }
     ],

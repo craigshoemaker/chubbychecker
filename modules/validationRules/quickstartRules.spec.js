@@ -34,19 +34,19 @@ describe('quickstartRules => ', () => {
         it('title has a lowercase "q" in "Quickstart"', () => {
             const invalid = validInput.replace('Quickstart', 'quickstart');
             const results = rules.apply(invalid);
-            expect(results.brokenRules.includes('Required text in H1: "Quickstart: "')).toBe(true);
+            expect(results.brokenRules.includes('H1 format must be: "Quickstart: "')).toBe(true);
         });
 
         it('title has no space after "Quickstart:"', () => {
             const invalid = validInput.replace('Quickstart: ', 'Quickstart:');
             const results = rules.apply(invalid);
-            expect(results.brokenRules.includes('Required text in H1: "Quickstart: "')).toBe(true);
+            expect(results.brokenRules.includes('H1 format must be: "Quickstart: "')).toBe(true);
         });
 
         it('"Next steps" comes before "Clean up resources"', () => {
             const invalid = validInput.replace('# Clean up resources', '# Next steps # Clean up resources');
             const results = rules.apply(invalid);
-            expect(results.brokenRules.includes('"Clean up resouces" comes before "Next steps"')).toBe(true);
+            expect(results.brokenRules.includes('"Clean up resouces" section must appear before "Next steps" section')).toBe(true);
         });
         
         it('missing required "Next steps" section', () => {

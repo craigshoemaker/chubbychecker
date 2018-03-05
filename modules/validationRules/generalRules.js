@@ -6,12 +6,12 @@ const _module = {
 
     rules: [
         {
-            description: 'H1 title immediately after metadata',
+            description: 'H1 title must immediately follow metadata',
             apply: input => /---\n(\n)?\#/.test(input)
         },
 
         {
-            description: 'Metadata is required',
+            description: 'Document must include metadata',
             apply: input => /(title|description|ms\.service|ms\.topic|ms\.date|ms\.author)\:/.test(input)
         }
     ],

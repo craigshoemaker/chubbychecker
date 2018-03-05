@@ -33,13 +33,13 @@ describe('general rules => ', () => {
         it('text before H1 title', () => {
             const invalid = validInput.replace('# Reacting', 'this is a test\n# Reacting');
             const results = generalRules.apply(invalid);
-            expect(results.brokenRules.includes('H1 title immediately after metadata')).toBe(true);
+            expect(results.brokenRules.includes('H1 title must immediately follow metadata')).toBe(true);
         });
 
         it('missing metadata', () => {
             const invalid = validInput.substr(validInput.lastIndexOf('---'));
             const results = generalRules.apply(invalid);
-            expect(results.brokenRules.includes('Metadata is required')).toBe(true);
+            expect(results.brokenRules.includes('Document must include metadata')).toBe(true);
         });
 
     });
