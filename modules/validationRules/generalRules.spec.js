@@ -13,7 +13,17 @@ ms.topic: article
 ms.service: storage
 ---
 
-# Reacting to Blob Storage events`;
+# Reacting to Blob Storage events
+
+[test](../../articles/cosmos-db/table-storage-cloud-service-nodejs.md)
+
+[test](~/articles/cosmos-db/table-storage-cloud-service-nodejs.md)
+
+[test](http://docs.microsoft.com/articles/cosmos-db/table-storage-cloud-service-nodejs)
+
+![screenshot](../media/logo.png)
+
+`;
 
 
 describe('general rules => ', () => {
@@ -21,6 +31,7 @@ describe('general rules => ', () => {
     describe('passes: ', () => {
 
         it('valid document passes all rules', () => {
+            console.log(validInput);
             const result = generalRules.apply(validInput);
             expect(result.total).toEqual(result.passed);
             expect(result.allPassed).toBe(true);
@@ -42,6 +53,11 @@ describe('general rules => ', () => {
             expect(results.brokenRules.includes('Document must include metadata')).toBe(true);
         });
 
+        it('relative links do not end with ".md"', () => {
+            const invalid = validInput.replace(/\.md/g, '');
+            const results = generalRules.apply(invalid);
+            expect(results.brokenRules.includes('Relative links must end with the ".md" extension')).toBe(true);
+        });
     });
 
 });
