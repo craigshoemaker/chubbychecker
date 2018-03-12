@@ -31,7 +31,6 @@ describe('general rules => ', () => {
     describe('passes: ', () => {
 
         it('valid document passes all rules', () => {
-            console.log(validInput);
             const result = generalRules.apply(validInput);
             expect(result.total).toEqual(result.passed);
             expect(result.allPassed).toBe(true);

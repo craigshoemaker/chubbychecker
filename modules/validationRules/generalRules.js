@@ -25,7 +25,6 @@ const _module = {
                 if(links) {
                     const linksMissingExtension = links.filter(link => {
                         const ext = link.substr(link.lastIndexOf('.'));
-                        const hasExtension = ext.length > 0;
                         const isMarkdown = /md/i.test(ext);
                         const isImage = /jpg|png|gif|svg/i.test(ext);
                         return !isImage && !isMarkdown;
