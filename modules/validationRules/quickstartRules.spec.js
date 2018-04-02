@@ -13,6 +13,8 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: cshoe
+
+# Customer intent: This is a very special customer intent statement.
 ---
 
 # Quickstart: Sample quickstart
@@ -85,6 +87,12 @@ describe('quickstartRules => ', () => {
             const invalid = validInput.replace('In this quickstart,', 'In this tutorial,');
             const results = rules.apply(invalid);
             expect(results.brokenRules.includes('"quickstart" is required in the metdata description field')).toBe(true);
+        });
+
+        it('missing "quickstart" in ms.description', () => {
+            const invalid = validInput.replace('# Customer intent:', '');
+            const results = rules.apply(invalid);
+            expect(results.brokenRules.includes('Customer intent statement is required in metadata')).toBe(true);
         });
     });
 

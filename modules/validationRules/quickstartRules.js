@@ -43,6 +43,11 @@ const _module = {
         {
             description: '"quickstart" is required in the metdata description field',
             apply: input => /description:\s*.*quickstart.*\n/.test(input)
+        },
+
+        {
+            description: 'Customer intent statement is required in metadata',
+            apply: input => /#\s*Customer intent:\s.{25,}\n/.test(input)
         }
     ],
 
