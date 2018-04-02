@@ -23,11 +23,13 @@ const _module = {
             apply: input => /## ?Next steps/.test(input)
         },
 
+        // different orgs have different urls for "free"
         {
             description: 'Link to free Azure account must come before first H2',
             apply: input =>  commonRules.stringBefore(input, 'azure.microsoft.com/free', '##')
         },
 
+        // update to ensure clean up resources come directly before
         {
             description: '"Clean up resouces" section must appear before "Next steps" section',
             apply: input => commonRules.stringBefore(input, 'Clean up resources', 'Next steps')
