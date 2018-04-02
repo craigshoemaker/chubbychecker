@@ -1,6 +1,20 @@
 const rules = require('./quickstartRules');
 
 const validInput = `
+---
+title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Node.js | Microsoft Docs
+description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Node.js to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+services: storage
+author: craigshoemaker
+manager: jeconnoc
+
+ms.custom: mvc
+ms.service: storage
+ms.topic: quickstart
+ms.date: 03/15/2018
+ms.author: cshoe
+---
+
 # Quickstart: Sample quickstart
 
 To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -32,7 +46,7 @@ describe('quickstartRules => ', () => {
     describe('fails: ', () => {
 
         it('title has a lowercase "q" in "Quickstart"', () => {
-            const invalid = validInput.replace('Quickstart', 'quickstart');
+            const invalid = validInput.replace('Quickstart: ', 'quickstart: ');
             const results = rules.apply(invalid);
             expect(results.brokenRules.includes('H1 format must be: "Quickstart: "')).toBe(true);
         });
@@ -59,6 +73,12 @@ describe('quickstartRules => ', () => {
             const invalid = validInput.replace('# Quickstart: Sample quickstart', '# Quickstart: Sample quickstart\n## Download sample application');
             const results = rules.apply(invalid);
             expect(results.allPassed).toBe(false);
+        });
+
+        it('metadata "ms.topic: quickstart" is missing', () => {
+            const invalid = validInput.replace('ms.topic: quickstart', 'ms.topic: tutorial');
+            const results = rules.apply(invalid);
+            expect(results.brokenRules.includes('"mstopic: quickstart" is required in metadata')).toBe(true);
         });
     });
 

@@ -33,6 +33,11 @@ const _module = {
         {
             description: '"Clean up resouces" section must appear before "Next steps" section',
             apply: input => commonRules.stringBefore(input, 'Clean up resources', 'Next steps')
+        },
+
+        {
+            description: '"mstopic: quickstart" is required in metadata',
+            apply: input => /ms\.topic:\s*quickstart\s*\n/.test(input)
         }
     ],
 
