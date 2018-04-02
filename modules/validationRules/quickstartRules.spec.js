@@ -80,6 +80,12 @@ describe('quickstartRules => ', () => {
             const results = rules.apply(invalid);
             expect(results.brokenRules.includes('"mstopic: quickstart" is required in metadata')).toBe(true);
         });
+
+        it('missing "quickstart" in ms.description', () => {
+            const invalid = validInput.replace('In this quickstart,', 'In this tutorial,');
+            const results = rules.apply(invalid);
+            expect(results.brokenRules.includes('"quickstart" is required in the metdata description field')).toBe(true);
+        });
     });
 
 });

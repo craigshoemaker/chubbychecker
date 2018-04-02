@@ -38,6 +38,11 @@ const _module = {
         {
             description: '"mstopic: quickstart" is required in metadata',
             apply: input => /ms\.topic:\s*quickstart\s*\n/.test(input)
+        },
+
+        {
+            description: '"quickstart" is required in the metdata description field',
+            apply: input => /description:\s*.*quickstart.*\n/.test(input)
         }
     ],
 
