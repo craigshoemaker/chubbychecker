@@ -23,10 +23,27 @@ const _module = {
             apply: input => /## ?Next steps/.test(input)
         },
 
-        // different orgs have different urls for "free"
         {
             description: 'Link to free Azure account must come before first H2',
-            apply: input =>  commonRules.stringBefore(input, 'azure.microsoft.com/free', '##')
+            apply: input =>  {
+
+                const freeLinkUrls = [
+                    'azure.microsoft.com/free',
+                    'web.powerapps.com/signup',
+                    'app.powerbi.com/signupredirect'
+                ];
+
+                let freeLinkUrl = 'free';
+
+                for(var i = 0; i < freeLinkUrls.length; i++) {
+                    if(input.indexOf(freeLinkUrls[i]) > 0){
+                        freeLinkUrl = freeLinkUrls[i];
+                        break;
+                    }
+                }
+                
+                return commonRules.stringBefore(input, freeLinkUrl, '##')
+            }
         },
 
         // update to ensure clean up resources come directly before
@@ -47,7 +64,14 @@ const _module = {
 
         {
             description: 'Customer intent statement is required in metadata',
-            apply: input => /#\s*Customer intent:\s.{25,}\n/.test(input)
+            apply: input => /Customer intent:\s.{25,}\n/.test(input)
+        },
+
+        {
+            description: 'Checklists are not allowed in a quickstart',
+            apply: input => {
+                return !/class="checklist"/.test(input)
+            }
         }
     ],
 
