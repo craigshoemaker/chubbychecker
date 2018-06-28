@@ -2,3 +2,4 @@ node_modules
 .vscode
 demo.txt
 notes.txt
+debug.js
