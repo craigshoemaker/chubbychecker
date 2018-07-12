@@ -39,12 +39,6 @@ describe('quickstartRules => ', () => {
             expect(result.total).toEqual(result.passed);
             expect(result.allPassed).toBe(true);
         });
-
-        it('is valid if no link to free account', () => {
-            const result = rules.apply(validInput.replace('azure.microsoft.com/free', ''));
-            expect(result.total).toEqual(result.passed);
-            expect(result.allPassed).toBe(true);
-        });
     });
 
     describe('fails: ', () => {
@@ -101,6 +95,12 @@ describe('quickstartRules => ', () => {
             const invalid = validInput.replace('NOT_A_CHECKLIST', '<div class="checklist"></div>');
             const results = rules.apply(invalid);
             expect(results.brokenRules.includes('Checklists are not allowed in a quickstart')).toBe(true);
+        });
+
+        it('missing link to free account', () => {
+            const invalid = validInput.replace('azure.microsoft.com/free', '');
+            const results = rules.apply(invalid);
+            expect(results.brokenRules.includes('Link to free Azure account must come before first H2')).toBe(true);
         });
     });
 

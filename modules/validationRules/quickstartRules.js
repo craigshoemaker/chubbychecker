@@ -23,29 +23,6 @@ const _module = {
             apply: input => /## ?Next steps/.test(input)
         },
 
-        {
-            description: 'Link to free Azure account must come before first H2',
-            apply: input =>  {
-
-                const freeLinkUrls = [
-                    'azure.microsoft.com/free',
-                    'web.powerapps.com/signup',
-                    'app.powerbi.com/signupredirect'
-                ];
-
-                let freeLinkUrl = 'free';
-
-                for(var i = 0; i < freeLinkUrls.length; i++) {
-                    if(input.indexOf(freeLinkUrls[i]) > 0){
-                        freeLinkUrl = freeLinkUrls[i];
-                        break;
-                    }
-                }
-                
-                return commonRules.stringBefore(input, freeLinkUrl, '##')
-            }
-        },
-
         // update to ensure clean up resources come directly before
         {
             description: '"Clean up resouces" section must appear before "Next steps" section',
@@ -77,5 +54,7 @@ const _module = {
 
     apply: (input) => ruleApplicator(input, _module)
 };
+
+_module.rules.push(commonRules.linkToFreeAccountBeforeFirstH2);
 
 module.exports = _module;

@@ -13,6 +13,10 @@ metadata
 > * Resize a VM
 > * Veiew and understand VM state
 
+To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+
+## Download the sample application
+
 ## Clean up resources
 
 ## Next steps`;

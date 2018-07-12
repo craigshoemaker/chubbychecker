@@ -42,4 +42,6 @@ const _module = {
     apply: (input) => ruleApplicator(input, _module)
 };
 
+_module.rules.push(commonRules.linkToFreeAccountBeforeFirstH2);
+
 module.exports = _module;
