@@ -16,6 +16,11 @@ const _module = {
         },
 
         {
+            description: 'Required metadata: Customer intent',
+            apply: input => /\# ?Customer intent:\s/.test(input)
+        },
+
+        {
             description: 'Relative links must end with the ".md" extension',
             apply: input => {
                 let returnValue = true;

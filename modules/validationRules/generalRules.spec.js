@@ -11,6 +11,7 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
+# Customer intent: this is the customer intent
 ---
 
 # Reacting to Blob Storage events
@@ -56,6 +57,12 @@ describe('general rules => ', () => {
             const invalid = validInput.replace(/\.md/g, '');
             const results = generalRules.apply(invalid);
             expect(results.brokenRules.includes('Relative links must end with the ".md" extension')).toBe(true);
+        });
+
+        it('Required metadata: Customer intent', () => {
+            const invalid = validInput.replace('# Customer intent: this is the customer intent', '');
+            const results = generalRules.apply(invalid);
+            expect(results.brokenRules.includes('Required metadata: Customer intent')).toBe(true);
         });
     });
 
