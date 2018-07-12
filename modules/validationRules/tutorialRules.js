@@ -41,6 +41,11 @@ const _module = {
         {
             description: 'Required metadata: ms.topic: tutorial',
             apply: input => /ms\.topic\:\stutorial/.test(input)
+        },
+
+        {
+            description: 'Do not number titles',
+            apply: input => !/##+\s\d/.test(input)
         }
     ],
 

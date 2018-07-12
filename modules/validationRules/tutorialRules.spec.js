@@ -77,6 +77,12 @@ describe('tutorialRules => ', () => {
             expect(results.brokenRules.includes('Required metadata: ms.topic: tutorial')).toBe(true);
         });
 
+        it('Do not number titles', () => {
+            const invalid = validInput.replace('## Download', '## 1: Download');
+            const results = rules.apply(invalid);
+            expect(results.brokenRules.includes('Do not number titles')).toBe(true);
+        });
+
     });
 
 });
