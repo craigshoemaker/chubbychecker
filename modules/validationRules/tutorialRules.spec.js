@@ -2,7 +2,7 @@ const rules = require('./tutorialRules');
 
 const validInput = `
 ---
-metadata
+ms.topic: tutorial
 ---
 
 # Tutorial: Yep?
@@ -69,6 +69,12 @@ describe('tutorialRules => ', () => {
             const invalid = validInput.replace('> [!div', '## Test\n\n> [!div');
             const results = rules.apply(invalid);
             expect(results.brokenRules.includes('Checklist must appear before first H2')).toBe(true);
+        });
+
+        it('Required metadata: ms.topic: tutorial', () => {
+            const invalid = validInput.replace('ms.topic: tutorial', '');
+            const results = rules.apply(invalid);
+            expect(results.brokenRules.includes('Required metadata: ms.topic: tutorial')).toBe(true);
         });
 
     });
