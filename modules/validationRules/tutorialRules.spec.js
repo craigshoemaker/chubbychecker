@@ -15,6 +15,8 @@ ms.topic: tutorial
 
 To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
+## Prerequisites
+
 ## Download the sample application
 
 ## Clean up resources
@@ -81,6 +83,12 @@ describe('tutorialRules => ', () => {
             const invalid = validInput.replace('## Download', '## 1: Download');
             const results = rules.apply(invalid);
             expect(results.brokenRules.includes('Do not number titles')).toBe(true);
+        });
+
+        it('Prerequisites must be the first H2', () => {
+            const invalid = validInput.replace('## Prerequisites', '## First H2');
+            const results = rules.apply(invalid);
+            expect(results.brokenRules.includes('Prerequisites must be the first H2')).toBe(true);
         });
 
     });

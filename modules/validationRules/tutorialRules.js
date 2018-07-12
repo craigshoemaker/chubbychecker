@@ -46,6 +46,16 @@ const _module = {
         {
             description: 'Do not number titles',
             apply: input => !/##+\s\d/.test(input)
+        },
+
+        {
+            description: 'Prerequisites must be the first H2',
+            apply: input => {
+                const prereqIndex = input.indexOf('\n## Prerequisites');
+                const firstH2Index = input.indexOf('\n## ');
+
+                return prereqIndex === firstH2Index;
+            }
         }
     ],
 
